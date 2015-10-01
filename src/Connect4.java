@@ -5,6 +5,13 @@ public class Connect4 {
 	public static final char NONE = ' ';
 	public static final char RED = 'O';
 	public static final char YELLOW = 'X';
+    public int inARowR = 1;
+    public int inARowL = 1;
+    public int inACol = 1;
+    public int diagRu = 1;
+    public int diagRd = 1;
+    public int diagLu = 1;
+    public int diagLd = 1;
 
 	char[][] board;
 
@@ -24,7 +31,11 @@ public class Connect4 {
 	 * @return a char matrix
 	 */
 	public char[][] getBoard() {
-		return board;
+        char[][] board1 = new char[6][7];
+        for (int i = 0; i < board.length; i++)
+            for (int j = 0; j < board[0].length; j++)
+                board1[i][j] = board[i][j];
+        return board1;
 	}
 
 	/**
@@ -74,7 +85,6 @@ public class Connect4 {
 			System.out.println("-");
 		}
 	}
-
 	/**
 	 * Check if an alignment has been made using the given tile
 	 *
@@ -83,89 +93,65 @@ public class Connect4 {
 	 * @return the color if there is an alignment, NONE otherwise.
 	 */
 	public char checkAlignment(int row, int column) {
-		/*if ((board[row+1][column] == board[row][column] && board[row+2][column] == board[row][column] && board[row+3][column] == board[row][column])
-                || ())*/
-		char color = board[row][column];
-		int inARow = 0;
-		int inACol = 0;
-		int diagR = 0;
-		int diagL = 0;
-		for (int i = column + 1; i < board.length; i++) {
-			if (board[row][i] == color)
-				inARow++;
-			else {
-				break;
-			}
-		}
-		while (inARow < 4) {
-			for (int i = column - 1; i >= 0; i--) {
-				if (board[row][i] == color)
-					inARow++;
-				else {
-					break;
-				}
-			}
-			break;
-		}
-		for (int i = row + 1; i < board[row].length - 1; i++) {
-			if (board[i][column] == color)
-				inACol++;
-			else {
-				break;
-			}
-		}
-		while (inACol < 4) {
-			for (int i = row - 1; i >= 0; i--) {
-				if (board[i][column] == color)
-					inACol++;
-				else {
-					break;
-				}
-			}
-			break;
-		}
-		for (int i = row + 1; i < board[row].length - 1; i++) {
-			if (column + (i - row) < board.length) {
-				if (board[i][column + (i - row)] == color)
-					diagR++;
-				else {
-					break;
-				}
-			}
-		}
-		while (diagR < 4) {
-			for (int i = row - 1; i >= 0; i--) {
-				if (column + (i - row) < board.length) {
-					if (board[i][column - (i - row)] == color)
-						diagR++;
+        char color = board[row][column];
+        if (row <= board.length - 4 && row >= 0) {
+            if (column <= board[0].length && column >= 0) {
+                while (board[row][column] == board[row++][column] && inACol < 4) {
+                    inACol++;
+                }
+            }
+        }
+        if (column <= board[0].length - 4 && column >= 0) {
+            if (row <= board.length && row >= 0) {
+                while (board[row][column] == board[row][column++] && inARowR < 4) {
+                    inARowR++;
+                }
+            }
+        }
+        if (column >= 4 && column <= board[0].length) {
+            if (row <= board.length && row >= 0) {
+                while (board[row][column] == board[row][column--] && inARowL < 4) {
+                    inARowL++;
+                }
+            }
+        }
+        if (column <= board[0].length - 4 && column >= 0)
+            if (row <= board.length - 4 && row >= 0)
+                while (board[row][column] == board[row++][column++] && diagRd < 4) {
+                    diagRd++;
+                }
+        if (column >= 4 && column <= board[0].length) {
+            if (row >= 4 && row <= board.length) {
+                while (board[row][column] == board[row--][column--] && diagLu < 4) {
+                    diagLu++;
+                }
+            }
+        }
+        if (column <= board[0].length - 4 && column >= 0) {
+            if (row >= 4 && row <= board.length) {
+                while (board[row][column] == board[row--][column++] && diagRu < 4) {
+                    diagRu++;
+                }
+            }
+        }
+        if (inACol >= 4) {
+            return color;
+        }
+        if (inARowL + inARowR >= 4) {
+            return color;
+        }
+        if (diagLd + diagRu >= 4) {
+            return color;
+        }
+        if (diagLu + diagRd >= 4) {
+            return color;
+        }
+        return NONE;
+    }
 
-				} else {
-					break;
-				}
 
-				break;
-			}
-			}
-			for (int i = row + 1; i < board[row].length - 1; i++) {
-				if (board[i][column - (i - row)] == color)
-					diagR++;
-				else {
-					break;
-				}
-			}
-			while (diagL < 4) {
-				for (int i = row - 1; i >= 0; i--) {
-					if (board[i][column - (row - i)] == color)
-						diagR++;
-					else {
-						break;
-					}
-				}
-				break;
-			}
-			return NONE;
 
-	}
+
 
 		/**
 		 * Launch the game for one game.
