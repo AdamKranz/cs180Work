@@ -16,7 +16,7 @@ public class Q1 {
      * 		"RECTANGULAR" if mat is not square.
      */
     public String isSkewSymmetric(int[][] mat) {
-
+        if ()
         return null ; // delete this statement and enter your code here
     }
 
