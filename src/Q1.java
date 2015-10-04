@@ -16,8 +16,23 @@ public class Q1 {
      * 		"RECTANGULAR" if mat is not square.
      */
     public String isSkewSymmetric(int[][] mat) {
-        if ()
-        return null ; // delete this statement and enter your code here
+        boolean diagonal = false;
+        if (mat.length == 0 || mat[0].length == 0)
+            return "NULL";
+        if (mat.length != mat[0].length)
+            return "RECTANGULAR";
+        for (int i = 0; i<mat.length;i++)
+        {
+            for(int j = 0;j<mat[0].length;j++)
+            {
+                if (i == j && mat[i][j]==0)
+                    diagonal = true;
+                if (mat[i][j] == -mat[j][i] && diagonal==true)
+                    return "TRUE";
+                return "FALSE";
+            }
+        }
+        return "FALSE";
     }
 
 }
