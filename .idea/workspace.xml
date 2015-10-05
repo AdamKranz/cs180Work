@@ -529,7 +529,13 @@
       <option name="project" value="LOCAL" />
       <updated>1444015711663</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Altered Code for exam q's">
+      <created>1444015716650</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1444015716650</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
