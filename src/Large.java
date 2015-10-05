@@ -10,17 +10,11 @@ public class Large {
      * @return the index of the largest element in the array
      */
     public static int indexOfLargest(int[] a) {
-        int largest = a[0];
-        int index = 0;
-
-        for (int i = 1; i < a.length; i++) {
-            if (a[i] > largest) {
+        int largest = Integer.MIN_VALUE;
+        for (int i = 0; i<a.length;i++)
+            if (largest <a[i])
                 largest = a[i];
-                index = i;
-            }
-        }
-
-       return index;
+        return largest;
     }
 
     public static void main(String[] args) {

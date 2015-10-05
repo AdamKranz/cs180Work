@@ -15,25 +15,16 @@ public class MyArray {
     public static boolean isLarge(int[] arr, int index) {
         if (arr == null)
             return false;
-
-        int len = arr.length;
-
-        if(len == 0)
+        if (arr.length == 0)
             return false;
-
-        if (index < 0 || index >= len)
+        if (index < 0 || index >= arr.length)
             return false;
-
-        int sum = 0;
-        for (int i = 0; i < len; i++) {
-            if (i == index)
-                continue;
-            else
-                sum = sum + arr[i];
+        int totSum = 0;
+        for (int x: arr) {
+            totSum+=x;
         }
-
-
-        return arr[index] >= sum;
+        totSum-=arr[index];
+        return arr[index] > totSum;
     }
 
     public static void main(String[] args) {

@@ -15,13 +15,14 @@ public class StringManipulate {
      *
      */
     public String findPositions(String inp, char c) {
-        String res = "";
-        for (int i = 0; i < inp.length(); i++) {
-            if(inp.charAt(i) == c) {
-                res = res + i + ",";
-            }
+        char[] chars = inp.toCharArray();
+        String indices = "";
+        for (int i=0; i<chars.length;i++)
+        {
+            if (chars[i]==c)
+                indices += i+",";
         }
-        return res;
+        return indices;
     }
 
     public static void main(String[] args) {
