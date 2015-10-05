@@ -20,8 +20,22 @@ public class Q3 {
      * @return mode of the given list.
      */
     public static int mode(int[] list) {
+        int count = 1;
+        int largestCount = 0;
+        int mode = list[0];
 
-        return -1; // delete this statement and enter your code here
+        for (int i=1;i<list.length;i++){
+            if (list[i]==list[i-1]) {
+                count++;
+            }
+            else
+                count=1;
+            if (count > largestCount) {
+                largestCount = count;
+                mode = list[i];
+            }
+        }
+        return mode;
     }
 
 }

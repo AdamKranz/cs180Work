@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Question 2 -- Complete the method haveSameChars
  */
@@ -25,8 +27,15 @@ public class Q2 {
      * 		return false if s1 = "Nash" and s2 = "Don"
      */
     public static boolean haveSameChars(String s1, String s2) {
-
-        return false; // delete this statement and enter your code here
+        if (s1 == null || s2 == null)
+            return false;
+        if (s1.equals(s2))
+            return true;
+        char[] char1 = s1.toCharArray();
+        char[] char2 = s2.toCharArray();
+        Arrays.sort(char1);
+        Arrays.sort(char2);
+        return Arrays.equals(char1,char2);
     }
 
 }
