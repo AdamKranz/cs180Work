@@ -11,11 +11,11 @@ public class Contact {
         this.name = name;
     }
 
-    public long getPhoneNumber() {
+    public long getNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(long phoneNumber) {
+    public void setNumber(long phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -47,7 +47,7 @@ public class Contact {
     }
 
     boolean equals(Contact c) {
-        return this.getAddress() == c.getAddress() && this.getName() == c.getName() && this.getPhoneNumber() == c.getPhoneNumber();
+        return this.getAddress() == c.getAddress() && this.getName() == c.getName() && this.getNumber() == c.getNumber();
 
     }
 

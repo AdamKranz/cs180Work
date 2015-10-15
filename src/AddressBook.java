@@ -7,7 +7,9 @@ public class AddressBook {
      * Constructor. Sets the initial size of the AddressBook to hold 10 Contacts.
      */
     public AddressBook() {
-        // TODO: initialize instance variables
+        contacts = new Contact[10];
+        maxContacts = contacts.length;
+        totalContacts = 0;
     }
 
     /**
@@ -21,7 +23,28 @@ public class AddressBook {
      * @return true if the Contact was added, false otherwise
      */
     public boolean addContact(Contact contact) {
-        cont
+        for (Contact c : this.contacts) {
+            if (contact.getName() == c.getName()) {
+                if (c.getNumber() != 0)
+                    c.setNumber(contact.getNumber());
+                if (c.getAddress() != null)
+                    c.setAddress(contact.getAddress());
+                return true;
+            }
+        }
+        if (totalContacts == maxContacts) {
+            Contact[] newArray = new Contact[maxContacts*2];
+            for (int i = 0; i<contacts.length;i++)
+                newArray[i] = contacts[i];
+            contacts = newArray;
+        }
+        for (int i = 0; i < contacts.length;i++) {
+            if (contacts[i] == null) {
+                contacts[i] = contact;
+                return true;
+            }
+        }
+        return false;
     }
     
     /**
@@ -38,6 +61,7 @@ public class AddressBook {
      */
     public boolean removeContact(Contact contact) {
         // TODO: implement this method
+        return false;
     }
     
     /**
@@ -48,6 +72,7 @@ public class AddressBook {
      */
     public Contact getContactByName(String name) {
         // TODO: implement this method
+        return null;
     }
     
     /**
@@ -57,7 +82,10 @@ public class AddressBook {
      * @return True if the contact is found, false otherwise
      */
     public boolean contains(Contact contact) {
-        // TODO: implement this method
+        for (Contact c : this.contacts)
+            if (contact.getName() == c.getName())
+                return true;
+        return false;
     }
     
     /**
