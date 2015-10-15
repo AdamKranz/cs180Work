@@ -9,6 +9,7 @@ public class Racecar extends Car {
     }
     public void race() {
         super.drive();
+        System.out.println("VROOM!");
     }
 
     public int getSpeed() {
