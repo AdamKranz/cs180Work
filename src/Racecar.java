@@ -1,7 +1,7 @@
 /**
  * Created by akranz on 10/14/15.
  */
-public class Racecar extends Car {
+public class Racecar extends car {
     private int speed;
     public Racecar(String make, int speed) {
         super(make);

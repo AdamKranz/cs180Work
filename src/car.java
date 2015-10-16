@@ -1,8 +1,8 @@
-public class Car {
+public class car {
 
     private String make;
 
-    public Car(String make) {
+    public car(String make) {
         this.make = make;
     }
     
