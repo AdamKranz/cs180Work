@@ -9,6 +9,6 @@ public class Route {
         this.to = to;
     }
     public boolean equals(Object obj) {
-        return false;
+        if ()
     }
 }

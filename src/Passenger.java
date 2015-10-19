@@ -1,12 +1,11 @@
 public class Passenger {
-	
 	public static final String CANCELED = "Canceled";
 	public static final String WAITLIST = "Waitlist";
 	public static final String CONFIRMED = "Confirmed";
 	private String bookingStatus;
 	private String name;
 	private Route route;
-
+    private Integer i;
 	public Passenger(String name, Route route) {
 		this.name = name;
 		this.route = route;
@@ -27,5 +26,4 @@ public class Passenger {
 	public void cancel() {
 		bookingStatus = CANCELED;
 	}
-
 }
