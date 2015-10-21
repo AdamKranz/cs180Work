@@ -1,8 +1,10 @@
+import java.util.ArrayList;
+
 /**
  * Created by akranz on 10/19/15.
  */
 public class Bus implements Vehicle {
-    private Passenger[] passengers;
+    private ArrayList<Passenger> passengers;
     private int passengerCount;
     private int capacity;
     private Route route;
@@ -10,14 +12,14 @@ public class Bus implements Vehicle {
     public Bus(Route route) {
         this.route = route;
         capacity = 2;
-        passengers = new Passenger[getCount()];
-        passengerCount = 0;
+        passengers = new ArrayList<>();
+        passengerCount = passengers.size();
     }
     public Bus(Route route, int capacity) {
         this.route = route;
         this.capacity = capacity;
-        passengers = new Passenger[getCount()];
-        passengerCount = 0;
+        passengers = new ArrayList<>();
+        passengerCount = passengers.size();
     }
 
     @Override
@@ -36,22 +38,41 @@ public class Bus implements Vehicle {
     }
 
     @Override
-    public Passenger[] getPassengers() {
+    public ArrayList<Passenger> getPassengers() {
         return passengers;
     }
 
     @Override
     public boolean addPassenger(Passenger person, boolean WaitingList) {
+        if (WaitingList == false) {
+            if (passengers.size() == capacity)
+                return false;
+        }
+        else {
+            if (passengers.size() == capacity && person.getRoute().equals(this.getRoute())) {
+                passengers.add(person);
+                return true;
+            }
+            if (person.getRoute().equals(this.getRoute())) {
+                passengers.add(person);
+                person.confirm();
+                return true;
+            }
+        }
         return false;
     }
 
     @Override
     public boolean addPassenger(Passenger person) {
-        return false;
+        return addPassenger(person,true);
     }
 
     @Override
     public Vehicle upgrade(int capacity) {
-        return null;
+        Vehicle a = new Airplane(getRoute(), capacity);
+        for (Passenger p : passengers) {
+            a.addPassenger(p);
+        }
+        return a;
     }
 }

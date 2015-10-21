@@ -9,6 +9,13 @@ public class Route {
         this.to = to;
     }
     public boolean equals(Object obj) {
-        if ()
+        if (obj == null)
+            return false;
+        if (obj instanceof Route) {
+            Route r = (Route) obj;
+            if (r.to.equals(this.to) && r.from.equals(this.from))
+                return true;
+        }
+        return false;
     }
 }
