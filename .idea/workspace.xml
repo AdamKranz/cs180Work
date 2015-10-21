@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5a0f0ded-9ff3-465d-a5d5-eec9b4f57ef7" name="Default" comment="Added AudioProject, CD, Downloadable, DVD, MP3, MP4, Product, VideoProduct, &amp; VideoType">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lab9/src/MP4.java" afterPath="$PROJECT_DIR$/lab9/src/MP4.java" />
+    <list default="true" id="5a0f0ded-9ff3-465d-a5d5-eec9b4f57ef7" name="Default" comment="Finished MP4 Class">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lab9/src/MusicStore.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="cs180.iws" />
@@ -38,16 +38,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MP4.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MP4.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lab9/src/MP4.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15911601">
+            <state vertical-scroll-proportion="0.0">
               <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
               <folding>
                 <element signature="e#181#182#0" expanded="true" />
                 <element signature="e#221#222#0" expanded="true" />
                 <element signature="e#498#499#0" expanded="true" />
                 <element signature="e#549#550#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MusicStore.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lab9/src/MusicStore.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="3.20221">
+              <caret line="161" column="9" selection-start-line="161" selection-start-column="9" selection-end-line="161" selection-end-column="9" />
+              <folding>
+                <element signature="e#6293#6294#0" expanded="true" />
+                <element signature="e#6334#6335#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -113,6 +126,7 @@
         <option value="$PROJECT_DIR$/lab9/src/MP3.java" />
         <option value="$PROJECT_DIR$/lab9/src/VideoProduct.java" />
         <option value="$PROJECT_DIR$/lab9/src/MP4.java" />
+        <option value="$PROJECT_DIR$/lab9/src/MusicStore.java" />
       </list>
     </option>
   </component>
@@ -699,7 +713,13 @@
       <option name="project" value="LOCAL" />
       <updated>1445389359937</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Finished MP4 Class">
+      <created>1445389620748</created>
+      <option name="number" value="00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1445389620748</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -784,7 +804,8 @@
     <MESSAGE value="Added Vehicle and Bus" />
     <MESSAGE value="Added Vehicle Management and Airplane" />
     <MESSAGE value="Added AudioProject, CD, Downloadable, DVD, MP3, MP4, Product, VideoProduct, &amp; VideoType" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added AudioProject, CD, Downloadable, DVD, MP3, MP4, Product, VideoProduct, &amp; VideoType" />
+    <MESSAGE value="Finished MP4 Class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished MP4 Class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -835,14 +856,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Connect4.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Game.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1220,13 +1233,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lab9/src/MP4.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15911601">
+        <state vertical-scroll-proportion="0.0">
           <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
           <folding>
             <element signature="e#181#182#0" expanded="true" />
             <element signature="e#221#222#0" expanded="true" />
             <element signature="e#498#499#0" expanded="true" />
             <element signature="e#549#550#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab9/src/MusicStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.20221">
+          <caret line="161" column="9" selection-start-line="161" selection-start-column="9" selection-end-line="161" selection-end-column="9" />
+          <folding>
+            <element signature="e#6293#6294#0" expanded="true" />
+            <element signature="e#6334#6335#0" expanded="true" />
           </folding>
         </state>
       </provider>
