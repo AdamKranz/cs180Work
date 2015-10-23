@@ -72,6 +72,12 @@ public class Bus implements Vehicle {
 
     @Override
     public Vehicle upgrade(int capacity) {
-        return null;
+        Airplane dumblesmore = new Airplane(route, capacity);
+        for (Passenger p : passengers) {
+            if (p != null) {
+                dumblesmore.addPassenger(p);
+            }
+        }
+        return dumblesmore;
     }
 }
