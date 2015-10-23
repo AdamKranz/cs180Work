@@ -7,7 +7,7 @@ public interface Vehicle {
     int getCapacity();
     Route getRoute();
     int getCount();
-    ArrayList<Passenger> getPassengers();
+    Passenger[] getPassengers();
     boolean addPassenger(Passenger person, boolean WaitingList);
     boolean addPassenger(Passenger person);
     Vehicle upgrade(int capacity);

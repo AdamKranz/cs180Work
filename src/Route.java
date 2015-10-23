@@ -18,4 +18,7 @@ public class Route {
         }
         return false;
     }
+    public String toString() {
+        return String.format("Route: From %s to %s\n", this.from, this.to);
+    }
 }

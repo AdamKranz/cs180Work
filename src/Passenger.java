@@ -21,9 +21,13 @@ public class Passenger {
 		return bookingStatus;
 	}
 	public void confirm() {
-		bookingStatus = CONFIRMED;
+		if (bookingStatus.equals(WAITLIST)) {
+			bookingStatus = CONFIRMED;
+		}
 	}
 	public void cancel() {
-		bookingStatus = CANCELED;
+		if (bookingStatus.equals(WAITLIST)) {
+			bookingStatus = CANCELED;
+		}
 	}
 }

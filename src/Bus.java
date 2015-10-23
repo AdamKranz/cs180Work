@@ -1,27 +1,26 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Created by akranz on 10/19/15.
  */
 public class Bus implements Vehicle {
-    private ArrayList<Passenger> passengers;
-    private int passengerCount;
-    private int capacity;
     private Route route;
-
+    private int capacity;
+    private int count;
+    private Passenger[] passengers;
     public Bus(Route route) {
         this.route = route;
         capacity = 2;
-        passengers = new ArrayList<>();
-        passengerCount = passengers.size();
+        count = 0;
+        passengers = new Passenger[capacity];
     }
     public Bus(Route route, int capacity) {
         this.route = route;
         this.capacity = capacity;
-        passengers = new ArrayList<>();
-        passengerCount = passengers.size();
+        count = 0;
+        passengers = new Passenger[capacity];
     }
-
     @Override
     public int getCapacity() {
         return capacity;
@@ -34,45 +33,45 @@ public class Bus implements Vehicle {
 
     @Override
     public int getCount() {
-        return passengerCount;
+        return count;
     }
 
     @Override
-    public ArrayList<Passenger> getPassengers() {
+    public Passenger[] getPassengers() {
         return passengers;
     }
 
     @Override
     public boolean addPassenger(Passenger person, boolean WaitingList) {
-        if (WaitingList == false) {
-            if (passengers.size() == capacity)
+        if (WaitingList == false)
+            if (count >= capacity) {
+                person.cancel();
                 return false;
+            }
+        if (!(person.getRoute().equals(route))) {
+            person.cancel();
+            return false;
         }
         else {
-            if (passengers.size() == capacity && person.getRoute().equals(this.getRoute())) {
-                passengers.add(person);
-                return true;
+            if (count == passengers.length) {
+                Passenger[] p = new Passenger[passengers.length+1];
+                System.arraycopy(passengers, 0, p, 0, passengers.length);
+                passengers = p;
             }
-            if (person.getRoute().equals(this.getRoute())) {
-                passengers.add(person);
-                person.confirm();
-                return true;
-            }
+            passengers[count] = person;
+            count++;
+            person.confirm();
+            return true;
         }
-        return false;
     }
 
     @Override
     public boolean addPassenger(Passenger person) {
-        return addPassenger(person,true);
+        return addPassenger(person, true);
     }
 
     @Override
     public Vehicle upgrade(int capacity) {
-        Vehicle a = new Airplane(getRoute(), capacity);
-        for (Passenger p : passengers) {
-            a.addPassenger(p);
-        }
-        return a;
+        return null;
     }
 }

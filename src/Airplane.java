@@ -1,21 +1,17 @@
-import java.util.ArrayList;
-
 /**
  * Created by akranz on 10/20/15.
  */
 public class Airplane implements Vehicle {
-    private int capacity;
     private Route route;
+    private int capacity;
     private int count;
-    private ArrayList<Passenger> passengers;
-
+    private Passenger[] passengers;
     public Airplane(Route route, int capacity) {
-        this.capacity = capacity;
         this.route = route;
-        count = passengers.size();
-        passengers = new ArrayList<>();
+        this.capacity = capacity;
+        count = 0;
+        passengers = new Passenger[capacity];
     }
-
     @Override
     public int getCapacity() {
         return capacity;
@@ -32,29 +28,31 @@ public class Airplane implements Vehicle {
     }
 
     @Override
-    public ArrayList<Passenger> getPassengers() {
+    public Passenger[] getPassengers() {
         return passengers;
     }
-
     @Override
-    public boolean addPassenger(Passenger person, boolean WaitingList) {
-        if (passengers.size() == capacity)
-                return false;
-        if (person.getRoute().equals(this.getRoute())) {
-            passengers.add(person);
+    public boolean addPassenger(Passenger person) {
+        if (!(person.getRoute().equals(route))) {
+            person.cancel();
+            return false;
+        }
+        else {
+            if (count == passengers.length) {
+                Passenger[] p = new Passenger[passengers.length+1];
+                System.arraycopy(passengers, 0, p, 0, passengers.length);
+                passengers = p;
+            }
+            passengers[count] = person;
+            count++;
             person.confirm();
             return true;
         }
-        return false;
     }
-
-
-
     @Override
-    public boolean addPassenger(Passenger person) {
-        return addPassenger(person, false);
+    public boolean addPassenger(Passenger person, boolean WaitingList) {
+       return addPassenger(person);
     }
-
     @Override
     public Vehicle upgrade(int capacity) {
         return null;
