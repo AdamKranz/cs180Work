@@ -5,7 +5,6 @@ public class Passenger {
 	private String bookingStatus;
 	private String name;
 	private Route route;
-    private Integer i;
 	public Passenger(String name, Route route) {
 		this.name = name;
 		this.route = route;

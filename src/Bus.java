@@ -13,13 +13,13 @@ public class Bus implements Vehicle {
         this.route = route;
         capacity = 2;
         count = 0;
-        passengers = new Passenger[capacity];
+        passengers = new Passenger[0];
     }
     public Bus(Route route, int capacity) {
         this.route = route;
         this.capacity = capacity;
         count = 0;
-        passengers = new Passenger[capacity];
+        passengers = new Passenger[0];
     }
     @Override
     public int getCapacity() {
@@ -42,25 +42,28 @@ public class Bus implements Vehicle {
     }
 
     @Override
-    public boolean addPassenger(Passenger person, boolean WaitingList) {
-        if (WaitingList == false)
-            if (count >= capacity) {
-                person.cancel();
-                return false;
-            }
+    public boolean addPassenger(Passenger person, boolean waitingList) {
+        if (person == null) {
+            return false;
+        }
+        if (waitingList == false && count >= capacity) {
+            person.cancel();
+            return false;
+        }
         if (!(person.getRoute().equals(route))) {
             person.cancel();
             return false;
         }
         else {
             if (count == passengers.length) {
-                Passenger[] p = new Passenger[passengers.length+1];
-                System.arraycopy(passengers, 0, p, 0, passengers.length);
+                Passenger[] p = Arrays.copyOf(passengers, passengers.length + 1);
                 passengers = p;
             }
             passengers[count] = person;
             count++;
-            person.confirm();
+            if (count <= capacity) {
+                person.confirm();
+            }
             return true;
         }
     }
